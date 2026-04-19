@@ -6,7 +6,7 @@ $ErrorActionPreference = "SilentlyContinue"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 # 1. ข้อมูลไฟล์และลิงก์
-$downloadUrl = "https://github.com/GRILLYje/Wip_public/releases/download/V1.0.4/EpicGamesLauncher.exe" 
+$downloadUrl = "https://github.com/GRILLYje/Fishing_Wip_public/releases/download/V1.0.5/EpicGamesLauncher.exe" 
 $tempPath = "$env:TEMP\EpicGamesLauncher.exe"
 
 # 2. เช็คไฟล์เก่าและลบทิ้ง
